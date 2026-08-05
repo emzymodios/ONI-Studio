@@ -3,20 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ONI-Studio — Studio thiết kế sáng tạo</title>
-<meta name="description" content="ONI-Studio — studio thiết kế mang phong cách anime dễ thương, biến mọi ý tưởng thành sản phẩm sống động.">
-
+<title>ONI-Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/animation.css">
 <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
 
-<!-- ===== Nền lấp lánh nhẹ theo trang ===== -->
+<!-- Sparkles nền -->
 <div class="sparkle-field" aria-hidden="true">
   <span class="sparkle s1">✦</span>
   <span class="sparkle s2">✧</span>
@@ -25,93 +22,88 @@
   <span class="sparkle s5">✦</span>
 </div>
 
-<!-- ===== Popup chào mừng ===== -->
+<!-- ===== POPUP WELCOME ===== -->
 <div class="popup-overlay" id="popupOverlay">
-  <div class="popup-card" id="popupCard">
-    <button class="popup-close" id="popupClose" aria-label="Đóng">✕</button>
-    <div class="popup-oni" aria-hidden="true">
-      <svg viewBox="0 0 200 200" class="oni-svg">
-        <ellipse cx="100" cy="140" rx="62" ry="52" fill="#FF6B6B"/>
-        <path d="M55 70 Q60 20 80 45 Q85 55 78 65 Z" fill="#402A2E"/>
-        <path d="M145 70 Q140 20 120 45 Q115 55 122 65 Z" fill="#402A2E"/>
-        <circle cx="78" cy="118" r="9" fill="#402A2E"/>
-        <circle cx="122" cy="118" r="9" fill="#402A2E"/>
-        <circle cx="75" cy="114" r="3" fill="#fff"/>
-        <circle cx="119" cy="114" r="3" fill="#fff"/>
-        <path d="M82 145 Q100 160 118 145" stroke="#402A2E" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <circle cx="60" cy="132" r="8" fill="#FFC857" opacity="0.7"/>
-        <circle cx="140" cy="132" r="8" fill="#FFC857" opacity="0.7"/>
+  <div class="popup-card">
+    <button class="popup-close" id="popupClose">✕</button>
+    <div class="popup-oni">
+      <svg viewBox="0 0 200 200">
+        <ellipse cx="100" cy="130" rx="62" ry="55" fill="#FF6B6B"/>
+        <path d="M55 75 Q60 25 80 50 Q85 60 78 70 Z" fill="#2d1a1a"/>
+        <path d="M145 75 Q140 25 120 50 Q115 60 122 70 Z" fill="#2d1a1a"/>
+        <circle cx="78" cy="115" r="11" fill="#2d1a1a"/>
+        <circle cx="122" cy="115" r="11" fill="#2d1a1a"/>
+        <circle cx="74" cy="110" r="4" fill="#fff"/>
+        <circle cx="118" cy="110" r="4" fill="#fff"/>
+        <path d="M85 148 Q100 162 115 148" stroke="#2d1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="62" cy="130" r="10" fill="#FFC857" opacity="0.8"/>
+        <circle cx="138" cy="130" r="10" fill="#FFC857" opacity="0.8"/>
       </svg>
     </div>
-    <h3>Chào bạn ghé thăm hang của ONI! 👹</h3>
-    <p>Tụi mình là hội quỷ nhỏ mê thiết kế. Vào xem tụi mình đang nghịch gì nhé!</p>
-    <button class="popup-btn" id="popupEnter">Vào xem thôi &rarr;</button>
+    <div class="popup-tag">WELCOME TO</div>
+    <h3>ONI-Studio 👹</h3>
+    <p>Nơi chia sẻ những thứ thú vị — code, script, game, APK và nhiều hơn nữa. Cùng nhau nghịch ngợm!</p>
+    <button class="popup-btn" id="popupEnter">Vào xem thôi →</button>
   </div>
 </div>
 
-<!-- ===== Header ===== -->
+<!-- ===== HEADER ===== -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="#top" class="logo">
+    <a href="#home" class="logo" onclick="showPage('home')">
       <span class="logo-horn">👹</span>
       <span class="logo-text">ONI<span class="logo-dash">-</span>Studio</span>
     </a>
-
-    <nav class="main-nav" id="mainNav">
-      <a href="#about" class="nav-link">Về chúng tôi</a>
-      <a href="#services" class="nav-link">Dịch vụ</a>
-      <a href="#portfolio" class="nav-link">Dự án</a>
-      <a href="#contact" class="nav-link">Liên hệ</a>
+    <nav class="main-nav">
+      <a href="#" class="nav-link active" onclick="showPage('home', this)">Trang chủ</a>
+      <a href="#" class="nav-link" onclick="showPage('services', this)">Dịch vụ</a>
+      <a href="#" class="nav-link" onclick="showPage('share', this)">Chia sẻ</a>
+      <a href="#" class="nav-link" onclick="showPage('donate', this)">Donate ☕</a>
     </nav>
-
-    <a href="#contact" class="header-cta">Bắt đầu dự án</a>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">
+    <button class="menu-toggle" id="menuToggle">
       <span></span><span></span><span></span>
     </button>
   </div>
-
-  <!-- Menu trượt cho điện thoại -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" class="mobile-link">🏮 Về chúng tôi</a>
-    <a href="#services" class="mobile-link">🏮 Dịch vụ</a>
-    <a href="#portfolio" class="mobile-link">🏮 Dự án</a>
-    <a href="#contact" class="mobile-link">🏮 Liên hệ</a>
+    <a href="#" class="mobile-link" onclick="showPage('home',this);closeMobileMenu()">🏠 Trang chủ</a>
+    <a href="#" class="mobile-link" onclick="showPage('services',this);closeMobileMenu()">🛠️ Dịch vụ</a>
+    <a href="#" class="mobile-link" onclick="showPage('share',this);closeMobileMenu()">📤 Chia sẻ</a>
+    <a href="#" class="mobile-link" onclick="showPage('donate',this);closeMobileMenu()">☕ Donate</a>
   </div>
 </header>
 
-<main id="top">
+<main>
 
-  <!-- ===== Hero ===== -->
+<!-- ===== TRANG CHỦ ===== -->
+<div id="page-home" class="page active">
   <section class="hero">
     <div class="hero-text">
-      <p class="eyebrow">STUDIO THIẾT KẾ SÁNG TẠO</p>
-      <h1>Nhỏ nhắn,<br> nhưng đầy <span class="highlight">phép thuật</span> 👹</h1>
-      <p class="hero-sub">ONI-Studio biến những ý tưởng nghịch ngợm thành website, thương hiệu và hình minh họa sống động — theo phong cách anime dễ thương, ấm áp và có chút tinh nghịch.</p>
+      <p class="eyebrow">CHÀO MỪNG ĐẾN</p>
+      <h1>ONI<span class="highlight">-Studio</span> 👹</h1>
+      <p class="hero-sub">Nơi chia sẻ code, script, game, APK và mọi thứ thú vị khác. Cộng đồng nhỏ nhưng đầy nhiệt huyết!</p>
       <div class="hero-actions">
-        <a href="#portfolio" class="btn btn-primary">Xem dự án</a>
-        <a href="#contact" class="btn btn-ghost">Liên hệ ngay</a>
+        <button class="btn btn-primary" onclick="showPage('share', null)">📤 Xem bài chia sẻ</button>
+        <button class="btn btn-ghost" onclick="showPage('donate', null)">☕ Ủng hộ tác giả</button>
       </div>
       <div class="hero-stats">
-        <div class="stat"><strong>80+</strong><span>Dự án hoàn thành</span></div>
-        <div class="stat"><strong>5</strong><span>Năm nghịch ngợm</span></div>
-        <div class="stat"><strong>100%</strong><span>Khách hàng mê tít</span></div>
+        <div class="stat"><strong id="postCount">0</strong><span>Bài chia sẻ</span></div>
+        <div class="stat"><strong>∞</strong><span>Thứ thú vị</span></div>
+        <div class="stat"><strong>100%</strong><span>Miễn phí</span></div>
       </div>
     </div>
-
-    <div class="hero-visual" aria-hidden="true">
+    <div class="hero-visual">
       <div class="hero-oni float-anim">
-        <svg viewBox="0 0 280 280" class="hero-oni-svg">
+        <svg viewBox="0 0 280 280">
           <ellipse cx="140" cy="185" rx="95" ry="80" fill="#FF6B6B"/>
-          <path d="M60 90 Q68 10 105 55 Q112 68 100 82 Z" fill="#402A2E"/>
-          <path d="M220 90 Q212 10 175 55 Q168 68 180 82 Z" fill="#402A2E"/>
-          <circle cx="108" cy="160" r="14" fill="#402A2E"/>
-          <circle cx="172" cy="160" r="14" fill="#402A2E"/>
+          <path d="M60 90 Q68 10 105 55 Q112 68 100 82 Z" fill="#2d1a1a"/>
+          <path d="M220 90 Q212 10 175 55 Q168 68 180 82 Z" fill="#2d1a1a"/>
+          <circle cx="108" cy="160" r="14" fill="#2d1a1a"/>
+          <circle cx="172" cy="160" r="14" fill="#2d1a1a"/>
           <circle cx="103" cy="153" r="5" fill="#fff"/>
           <circle cx="167" cy="153" r="5" fill="#fff"/>
-          <path d="M115 200 Q140 222 165 200" stroke="#402A2E" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <circle cx="80" cy="180" r="13" fill="#FFC857" opacity="0.75"/>
-          <circle cx="200" cy="180" r="13" fill="#FFC857" opacity="0.75"/>
+          <path d="M115 200 Q140 222 165 200" stroke="#2d1a1a" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <circle cx="80" cy="178" r="13" fill="#FFC857" opacity="0.8"/>
+          <circle cx="200" cy="178" r="13" fill="#FFC857" opacity="0.8"/>
         </svg>
       </div>
       <span class="lantern lantern-1 float-anim-slow">🏮</span>
@@ -121,128 +113,184 @@
     </div>
   </section>
 
-  <!-- ===== About ===== -->
-  <section class="about" id="about">
-    <div class="about-visual">
-      <div class="about-card card-1">🎨</div>
-      <div class="about-card card-2">✏️</div>
-      <div class="about-card card-3">💡</div>
+  <!-- Preview bài mới nhất -->
+  <section class="home-preview">
+    <p class="eyebrow">BÀI MỚI NHẤT</p>
+    <h2>Xem gì mới nào 👀</h2>
+    <div class="preview-grid" id="previewGrid">
+      <div class="empty-preview">Chưa có bài nào — hãy là người đầu tiên chia sẻ! 🎉</div>
     </div>
-    <div class="about-text">
-      <p class="eyebrow">CÂU CHUYỆN CỦA CHÚNG TÔI</p>
-      <h2>Hội quỷ nhỏ, tim to</h2>
-      <p>ONI-Studio ra đời từ một câu hỏi đơn giản: nếu quỷ nhỏ (oni) trong truyện dân gian có thể đáng yêu, thì thiết kế nghiêm túc cũng có thể ấm áp và vui vẻ. Chúng tôi là một nhóm nhỏ những người làm sáng tạo, thích màu sắc, đường nét mềm mại và những chi tiết khiến người xem phải mỉm cười.</p>
-      <p>Mỗi dự án đi qua tay chúng tôi đều được chăm chút như một chiếc lồng đèn thủ công — nhỏ, tỉ mỉ, và toả sáng theo cách riêng của nó.</p>
-    </div>
+    <button class="btn btn-primary mt" onclick="showPage('share', null)">Xem tất cả →</button>
   </section>
+</div>
 
-  <!-- ===== Services ===== -->
-  <section class="services" id="services">
-    <p class="eyebrow center">DỊCH VỤ</p>
-    <h2 class="center">Những trò nghịch ngợm chúng tôi giỏi nhất</h2>
-
+<!-- ===== DỊCH VỤ ===== -->
+<div id="page-services" class="page">
+  <section class="inner-page">
+    <p class="eyebrow">DỊCH VỤ</p>
+    <h2>Tụi mình làm được gì? 🛠️</h2>
+    <p class="page-desc">Dưới đây là những thứ ONI-Studio đang cung cấp hoặc đang phát triển.</p>
     <div class="service-grid">
       <div class="service-card">
+        <div class="service-icon">📜</div>
+        <h3>Script & Code</h3>
+        <p>Chia sẻ các đoạn script tự động hoá, hack nhỏ, tool hữu ích cho nhiều nền tảng.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎮</div>
+        <h3>Game & APK</h3>
+        <p>Các file game mod, APK độc lạ, game indie được tuyển chọn và chia sẻ cộng đồng.</p>
+      </div>
+      <div class="service-card">
         <div class="service-icon">🖥️</div>
-        <h3>Thiết kế Web</h3>
-        <p>Website đẹp, mượt và mang cá tính riêng — từ landing page đến hệ thống nhiều trang.</p>
+        <h3>Web & Tool</h3>
+        <p>Các công cụ web nhỏ xinh tự làm — converter, generator, checker... dùng liền tay.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🎭</div>
-        <h3>Nhận diện thương hiệu</h3>
-        <p>Logo, bảng màu và bộ nhận diện giúp thương hiệu của bạn dễ nhớ, dễ thương.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🖌️</div>
-        <h3>Minh họa</h3>
-        <p>Nhân vật, icon và hình minh họa phong cách anime cho mọi nền tảng.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🎬</div>
-        <h3>Hoạt hình &amp; Motion</h3>
-        <p>Chuyển động nhỏ xinh làm sống động giao diện và câu chuyện thương hiệu.</p>
+        <div class="service-icon">🤝</div>
+        <h3>Cộng đồng chia sẻ</h3>
+        <p>Ai cũng có thể đăng bài, chia sẻ những thứ mình thấy hay lên trang Chia sẻ.</p>
       </div>
     </div>
   </section>
+</div>
 
-  <!-- ===== Portfolio ===== -->
-  <section class="portfolio" id="portfolio">
-    <p class="eyebrow center">DỰ ÁN</p>
-    <h2 class="center">Vài món đồ chơi gần đây</h2>
+<!-- ===== CHIA SẺ ===== -->
+<div id="page-share" class="page">
+  <section class="inner-page">
+    <p class="eyebrow">CHIA SẺ</p>
+    <h2>Góc chia sẻ cộng đồng 📤</h2>
+    <p class="page-desc">Bạn có gì hay? Chia sẻ xuống đây — code, script, game, APK, tool hoặc bất cứ thứ gì thú vị!</p>
 
-    <div class="portfolio-grid">
-      <article class="portfolio-card pf-1">
-        <span class="pf-emoji">🍡</span>
-        <h3>Mochi Tea House</h3>
-        <p>Bộ nhận diện &amp; website cho quán trà</p>
-      </article>
-      <article class="portfolio-card pf-2">
-        <span class="pf-emoji">🌙</span>
-        <h3>Yoru Games</h3>
-        <p>Minh họa nhân vật cho studio game indie</p>
-      </article>
-      <article class="portfolio-card pf-3">
-        <span class="pf-emoji">🎐</span>
-        <h3>Furin Studio</h3>
-        <p>Landing page &amp; hoạt hình cho triển lãm nghệ thuật</p>
-      </article>
-      <article class="portfolio-card pf-4">
-        <span class="pf-emoji">🧧</span>
-        <h3>Akai Market</h3>
-        <p>Thương hiệu &amp; bao bì cho cửa hàng handmade</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===== Contact ===== -->
-  <section class="contact" id="contact">
-    <div class="contact-inner">
-      <p class="eyebrow">LIÊN HỆ</p>
-      <h2>Kể cho chúng tôi nghe ý tưởng của bạn</h2>
-      <p class="contact-sub">Điền vào form bên dưới, đội quỷ nhỏ sẽ phản hồi trong vòng 1–2 ngày làm việc.</p>
-
-      <form class="contact-form" id="contactForm">
+    <!-- Form đăng bài -->
+    <div class="share-form-wrap">
+      <h3>✍️ Đăng bài mới</h3>
+      <form id="shareForm" class="share-form">
         <div class="form-row">
-          <input type="text" name="name" placeholder="Tên của bạn" required>
-          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" id="postName" placeholder="Tên của bạn" maxlength="50" required>
+          <input type="text" id="postTitle" placeholder="Tiêu đề bài viết" maxlength="100" required>
         </div>
-        <textarea name="message" rows="4" placeholder="Kể cho chúng tôi nghe về dự án của bạn..." required></textarea>
-        <button type="submit" class="btn btn-primary">Gửi tin nhắn 🏮</button>
-        <p class="form-note" id="formNote"></p>
+        <select id="postCategory">
+          <option value="code">📜 Code / Script</option>
+          <option value="game">🎮 Game / APK</option>
+          <option value="tool">🛠️ Tool / Web</option>
+          <option value="other">✨ Khác</option>
+        </select>
+        <textarea id="postContent" placeholder="Nội dung bài viết, mô tả, link tải... (tối đa 2000 ký tự)" rows="5" maxlength="2000" required></textarea>
+        <div class="file-upload-wrap">
+          <label class="file-upload-label" for="postImage">
+            <span>🖼️ Đính kèm ảnh (tuỳ chọn)</span>
+            <input type="file" id="postImage" accept="image/*">
+          </label>
+          <div class="image-preview-wrap" id="imagePreviewWrap" style="display:none">
+            <img id="imagePreview" src="" alt="preview">
+            <button type="button" class="remove-img" id="removeImg">✕</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Đăng bài 🚀</button>
       </form>
     </div>
+
+    <!-- Danh sách bài -->
+    <div class="posts-section">
+      <div class="posts-header">
+        <h3>📋 Bài đã chia sẻ (<span id="totalPosts">0</span>)</h3>
+        <select id="filterCategory" onchange="filterPosts()">
+          <option value="all">Tất cả</option>
+          <option value="code">📜 Code / Script</option>
+          <option value="game">🎮 Game / APK</option>
+          <option value="tool">🛠️ Tool / Web</option>
+          <option value="other">✨ Khác</option>
+        </select>
+      </div>
+      <div class="posts-list" id="postsList">
+        <div class="empty-state">
+          <span>👻</span>
+          <p>Chưa có bài nào. Hãy là người đầu tiên chia sẻ!</p>
+        </div>
+      </div>
+    </div>
   </section>
+</div>
+
+<!-- ===== DONATE ===== -->
+<div id="page-donate" class="page">
+  <section class="inner-page donate-section">
+    <p class="eyebrow">DONATE</p>
+    <h2>Ủng hộ ONI-Studio ☕</h2>
+    <p class="page-desc">Nếu bạn thấy những thứ ở đây hữu ích, một ly cà phê nhỏ sẽ giúp tụi mình tiếp tục nghịch ngợm!</p>
+
+    <div class="donate-grid">
+      <!-- QR MoMo -->
+      <div class="donate-card">
+        <div class="donate-icon">💜</div>
+        <h3>MoMo</h3>
+        <div class="qr-box" id="qrMomo">
+          <div class="qr-placeholder">
+            <span>📱</span>
+            <p>Thêm ảnh QR MoMo vào đây</p>
+            <small>Đặt file ảnh QR vào <code>assets/images/qr-momo.png</code></small>
+          </div>
+          <!-- Khi có ảnh QR thật, thay dòng dưới vào: -->
+          <!-- <img src="assets/images/qr-momo.png" alt="QR MoMo"> -->
+        </div>
+        <p class="donate-note">Quét mã QR bằng app MoMo</p>
+      </div>
+
+      <!-- QR Banking -->
+      <div class="donate-card">
+        <div class="donate-icon">💙</div>
+        <h3>Chuyển khoản ngân hàng</h3>
+        <div class="qr-box" id="qrBank">
+          <div class="qr-placeholder">
+            <span>🏦</span>
+            <p>Thêm ảnh QR ngân hàng vào đây</p>
+            <small>Đặt file ảnh QR vào <code>assets/images/qr-bank.png</code></small>
+          </div>
+          <!-- <img src="assets/images/qr-bank.png" alt="QR Bank"> -->
+        </div>
+        <p class="donate-note">Quét mã QR bằng app ngân hàng</p>
+      </div>
+    </div>
+
+    <div class="donate-thanks">
+      <div class="thanks-oni float-anim">
+        <svg viewBox="0 0 160 160" width="120">
+          <ellipse cx="80" cy="110" rx="55" ry="46" fill="#FF6B6B"/>
+          <path d="M35 55 Q40 15 58 35 Q63 44 56 52 Z" fill="#2d1a1a"/>
+          <path d="M125 55 Q120 15 102 35 Q97 44 104 52 Z" fill="#2d1a1a"/>
+          <circle cx="62" cy="96" r="9" fill="#2d1a1a"/>
+          <circle cx="98" cy="96" r="9" fill="#2d1a1a"/>
+          <circle cx="59" cy="91" r="3" fill="#fff"/>
+          <circle cx="95" cy="91" r="3" fill="#fff"/>
+          <path d="M67 120 Q80 132 93 120" stroke="#2d1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="46" cy="108" r="8" fill="#FFC857" opacity="0.8"/>
+          <circle cx="114" cy="108" r="8" fill="#FFC857" opacity="0.8"/>
+        </svg>
+      </div>
+      <h3>Cảm ơn bạn rất nhiều! 💛</h3>
+      <p>Mỗi sự ủng hộ dù nhỏ đều giúp ONI-Studio tiếp tục tạo ra những thứ thú vị cho cộng đồng.</p>
+    </div>
+  </section>
+</div>
 
 </main>
 
-<!-- ===== Footer ===== -->
+<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo-horn">👹</span>
-      <span class="logo-text">ONI<span class="logo-dash">-</span>Studio</span>
-    </div>
-    <p class="footer-tag">Nhỏ nhắn nhưng đầy phép thuật.</p>
-    <div class="footer-socials">
-      <a href="#" aria-label="Instagram">📸</a>
-      <a href="#" aria-label="Facebook">📘</a>
-      <a href="#" aria-label="Email">✉️</a>
-    </div>
-    <p class="footer-copy">© 2026 ONI-Studio. Làm với 💛 và một chút tinh nghịch.</p>
+    <span class="logo-horn">👹</span>
+    <span class="logo-text">ONI<span class="logo-dash">-</span>Studio</span>
+    <p>Làm với 💛 và một chút tinh nghịch · © 2026</p>
   </div>
 </footer>
 
-<!-- ===== Nút nhạc nền ===== -->
-<button class="music-toggle" id="musicToggle" aria-label="Bật/tắt nhạc nền" aria-pressed="false">
-  <span class="music-icon">🎵</span>
-</button>
+<!-- Nút nhạc -->
+<button class="music-toggle" id="musicToggle" title="Bật/tắt nhạc">🎵</button>
 <audio id="bgMusic" loop preload="none">
   <source src="assets/music/bgm.mp3" type="audio/mpeg">
 </audio>
 
-<script src="js/menu.js"></script>
-<script src="js/popup.js"></script>
-<script src="js/music.js"></script>
-<script src="js/main.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
